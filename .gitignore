@@ -1,0 +1,5 @@
+!.gitkeep
+temp/
+*.pyc
+*~
+db.sqlite3
