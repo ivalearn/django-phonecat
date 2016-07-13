@@ -9,7 +9,8 @@ var src_js = [
   'bower_components/jquery/dist/jquery.js',
   'bower_components/bootstrap/dist/js/bootstrap.js',
   'bower_components/angular/angular.js',
-  'app/app.js',
+  'app/phone-app.js',
+  'app/phone-list/phone-list.js',
 ];
 
 var src_css = [

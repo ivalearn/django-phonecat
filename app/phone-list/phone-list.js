@@ -1,10 +1,9 @@
-// app.js
 'use strict';
 
-angular.module('phoneApp', []);
+angular.module('phoneList', []);
 
 angular
-  .module('phoneApp')
+  .module('phoneList')
   .component('phoneList', {
     templateUrl: 'phone-list.template.html',
     controller: function() {},
