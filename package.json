@@ -1,0 +1,26 @@
+{
+  "name": "phonecat",
+  "version": "1.0.0",
+  "description": "phone catalog",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.vanko.me/git/local/devel.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "vanko",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    if debug
+      each file in load_css
+        link(href="#{file}", rel="stylesheet")
+    if debug
+      each file in load_js
+        script(src="#{file}")
+  body.container-fluid(ng-app="phoneApp")
+    phone-list
+    if debug
+      script document.write('<script src="//' + location.host.split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')

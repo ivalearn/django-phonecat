@@ -1,5 +1,9 @@
 !.gitkeep
 temp/
 *.pyc
+/node_modules/
+/bower_components/
+/static/
+/dist/
 *~
 db.sqlite3

@@ -1,0 +1,9 @@
+Django==1.9.7
+djangorestframework==3.3.3
+flake8==2.6.2
+gunicorn==19.6.0
+ipdb==0.10.1
+ipython==5.0.0
+requests==2.10.0
+six==1.10.0
+pytz==2016.6
