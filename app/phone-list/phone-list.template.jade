@@ -1,15 +1,20 @@
 .row
   .col-md-2
-    form.form-inline
+    form
       .form-group
         label Search
         input.form-control(ng-model="$ctrl.query")
-    p {{$ctrl.phones.length}} phones found
+      .form-group
+        label Sort
+        select.form-control(ng-model="$ctrl.sort")
+          option(value="name") Name
+          option(value="age") Age
   .col-md-10
     ul.phones
-      li.thumbnail.phone-list-item(ng-repeat="phone in $ctrl.phones")
+      li.thumbnail.phone-list-item(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.sort")
         a
-          img(ng-src="{{phone.image}}" alt="{{phone.name}}")
+          img(ng-src="{{phone.image1}}" alt="{{phone.name}}")
         article
           a(href="#") {{phone.name}}
+            small &nbsp;[{{phone.age}}]
           p {{phone.snippet}}

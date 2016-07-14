@@ -9,9 +9,11 @@ angular
     controller: [
       '$http',
       function($http) {
-      var self = this;
-      $http.get('/phonecat/phones.json').then(function(response) {
-        self.phones = response.data;
-      });
+        var self = this;
+        self.query = "";
+        self.sort = "name";
+        $http.get('/phonecat/phones.json').then(function(response) {
+          self.phones = response.data;
+        });
     }],
   });
