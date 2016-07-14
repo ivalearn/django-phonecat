@@ -1,1 +1,15 @@
-p Phone List
+.row
+  .col-md-2
+    form
+      .form-group
+        label Search
+        input.form-control(ng-model="$ctrl.query")
+    p {{$ctrl.phones.length}} phones found
+  .col-md-10
+    ul.phones
+      li.thumbnail.phone-list-item(ng-repeat="phone in $ctrl.phones")
+        a
+          img(ng-src="{{phone.image}}" alt="{{phone.name}}")
+        article
+          a(href="#") {{phone.name}}
+          p {{phone.snippet}}

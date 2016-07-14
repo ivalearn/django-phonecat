@@ -1,0 +1,13 @@
+.phones {
+  list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    a {
+      flex: 0 0 100px;
+    }
+    article {
+      padding: 15px;
+    }
+  }
+}
