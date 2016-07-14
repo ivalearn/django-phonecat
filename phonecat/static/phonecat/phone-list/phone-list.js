@@ -12,7 +12,7 @@ angular
         var self = this;
         self.query = "";
         self.sort = "name";
-        $http.get('/phonecat/phones.json').then(function(response) {
+        $http.get('phones.json').then(function(response) {
           self.phones = response.data;
         });
     }],

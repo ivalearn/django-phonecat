@@ -1,0 +1,26 @@
+- load staticfiles
+- load compress
+doctype html
+html(lang="en" ng-app="phoneApp")
+  head
+    meta(charset="utf-8")
+    - compress css
+    link(href="{% static 'bootstrap/dist/css/bootstrap.css' %}" rel="stylesheet")
+    <link href="{% static 'phonecat/phone-app.scss' %}" type="text/x-scss" rel="stylesheet">
+    <link href="{% static 'phonecat/phone-list/phone-list.scss' %}" type="text/x-scss" rel="stylesheet">
+    - endcompress
+    script(type='text/javascript').
+      var STATIC_URL = '{% static "" %}';
+    - compress js
+    script(src="{% static 'angular/angular.js' %}")
+    script(src="{% static 'phonecat/phone-app.js' %}")
+    script(src="{% static 'phonecat/phone-list/phone-list.js' %}")
+    - endcompress
+  body.container-fluid
+    nav.navbar.navbar-default
+      ul.nav.navbar-nav
+        li
+          a(href="/") Root
+    phone-list
+    if debug
+      script document.write('<script src="//' + location.host.split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
