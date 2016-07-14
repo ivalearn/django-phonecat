@@ -5,9 +5,16 @@ from jsonfield import JSONField
 class Phone(models.Model):
     name = models.CharField(max_length=80)
     age = models.IntegerField()
-    image = models.ImageField(upload_to='phones')
+    image1 = models.ImageField(upload_to='phones', null=True, blank=True)
+    image2 = models.ImageField(upload_to='phones', null=True, blank=True)
+    image3 = models.ImageField(upload_to='phones', null=True, blank=True)
+    image4 = models.ImageField(upload_to='phones', null=True, blank=True)
+    image5 = models.ImageField(upload_to='phones', null=True, blank=True)
     snippet = models.CharField(max_length=255)
     props = JSONField(blank=True, null=True)
 
     def __unicode__(self):
-        return u'Phone[%d] %s' % (self.id, self.name)
+        return u'Phone[%s] %s' % (self.id, self.name)
+
+    class Meta:
+        ordering = ['id']
