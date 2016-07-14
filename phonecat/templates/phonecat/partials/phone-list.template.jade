@@ -1,6 +1,6 @@
 - verbatim
 .row
-  .col-md-2
+  .col-sm-2
     form
       .form-group
         label Search
@@ -10,13 +10,13 @@
         select.form-control(ng-model="$ctrl.sort")
           option(value="name") Name
           option(value="age") Age
-  .col-md-10
+  .col-sm-10
     ul.phones
       li.thumbnail.phone-list-item(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.sort")
-        a
-          img(ng-src="{{phone.image1}}" alt="{{phone.name}}")
+        a(ui-sref="phone_detail({id: phone.id})")
+          img(ng-src="{{phone.image}}" alt="{{phone.name}}")
         article
-          a(href="#") {{phone.name}}
+          a(ui-sref="phone_detail({id: phone.id})") {{phone.name}}
             small &nbsp;[{{phone.age}}]
           p {{phone.snippet}}
 - endverbatim

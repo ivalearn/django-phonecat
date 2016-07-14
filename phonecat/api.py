@@ -15,12 +15,14 @@ def api_root(request, format=None):
 class PhoneShortSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Phone
-        fields = ('id', 'name', 'age', 'image1', 'snippet', 'url')
+        fields = ('id', 'name', 'age', 'image', 'snippet', 'url')
+        read_only_fields = fields
 
 
 class PhoneFullSerializer(serializers.ModelSerializer):
     class Meta:
         model = Phone
+        fields = ('id', 'name', 'age', 'image', 'images', 'snippet', 'json_props')
 
 
 class PhoneList(generics.ListAPIView):

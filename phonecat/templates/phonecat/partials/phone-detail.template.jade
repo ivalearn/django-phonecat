@@ -1,0 +1,16 @@
+- verbatim
+.row.phone-detail
+  .col-sm-3
+    .detail-image
+      img.img-responsive(ng-src="{{$ctrl.image}}")
+  .col-sm-9
+    .jumbotron
+      h1 {{$ctrl.data.name}}
+      p {{$ctrl.data.snippet}}
+      .row
+        img.img-responsive.img-thumbnail.col-xs-2(ng-repeat="img in $ctrl.images", ng-src="{{img.src}}", ng-mouseenter="$ctrl.image = img.src; img.hover = true;", ng-mouseleave="img.hover = false", ng-class="{'img-circle': img.hover}")
+.row
+  .col-sm-12 {{$ctrl.description}}
+.row
+  phone-option(ng-repeat="(k, v) in $ctrl.props", name="k", value="v")
+- endverbatim

@@ -14,3 +14,11 @@ urlpatterns = [
     url(r'^media/(?P<path>.*)$',
         lambda request, path: HttpResponseRedirect(urljoin(settings.STATIC_URL, path))),
 ]
+
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    urlpatterns += staticfiles_urlpatterns()
+else:
+    from django.views.static import serve
+    pattern = r'^%s(?P<path>.*)$' % settings.STATIC_URL.lstrip('/')
+    urlpatterns += [url(pattern, serve, {'document_root': settings.STATIC_ROOT})]

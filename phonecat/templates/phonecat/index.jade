@@ -6,8 +6,7 @@ html(lang="en", ng-app="phoneApp")
     meta(charset="utf-8")
     - compress css
     link(href="{% static 'bootstrap/dist/css/bootstrap.css' %}", rel="stylesheet")
-    link(href="{% static 'phonecat/phone-app.scss' %}", type="text/x-scss", rel="stylesheet")
-    link(href="{% static 'phonecat/phone-list/phone-list.scss' %}", type="text/x-scss", rel="stylesheet")
+    link(href="{% static 'phonecat/phone-list.scss' %}", type="text/x-scss", rel="stylesheet")
     - endcompress
     - compress js
     script(src="{% static 'jquery/dist/jquery.js' %}")
@@ -15,7 +14,9 @@ html(lang="en", ng-app="phoneApp")
     script(src="{% static 'angular/angular.js' %}")
     script(src="{% static 'angular-ui-router/release/angular-ui-router.js' %}")
     script(src="{% static 'phonecat/phone-app.js' %}")
-    script(src="{% static 'phonecat/phone-list/phone-list.js' %}")
+    script(src="{% static 'phonecat/phone-list.js' %}")
+    script(src="{% static 'phonecat/phone-detail.js' %}")
+    script(src="{% static 'phonecat/phone-option.js' %}")
     - endcompress
   body.container-fluid
     nav.navbar.navbar-default
@@ -27,7 +28,15 @@ html(lang="en", ng-app="phoneApp")
         a.navbar-brand(href="#") Smartphones
       .collapse.navbar-collapse#bs-navbar-collapse
         ul.nav.navbar-nav
-          li: a(ui-sref="list") List
+          li: a(href="/") Home
+          li: a(ui-sref="phone_list") List
     div(ui-view)
+    div#partials(style="display:none;")
+      script#phone-list-template(type="text/ng-template")
+        include phonecat/partials/phone-list.template.jade
+      script#phone-detail-template(type="text/ng-template")
+        include phonecat/partials/phone-detail.template.jade
+      script#phone-option-template(type="text/ng-template")
+        include phonecat/partials/phone-option.template.jade
     if debug
       script document.write('<script src="//' + location.host.split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')

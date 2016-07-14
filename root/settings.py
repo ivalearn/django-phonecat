@@ -13,7 +13,7 @@ SECRET_KEY = '_(0r##3w!$a9)j#xdg*l^-v&o2kk#=*@rqbvwl^u$x%_!8wvp*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['uxen1.int.vanko.me']
 
 
 # Application definition
@@ -122,14 +122,21 @@ COMPRESS_ROOT = os.path.join(TEMP_DIR, 'compress')
 if not os.path.exists(COMPRESS_ROOT):
     os.makedirs(COMPRESS_ROOT)
 COMPRESS_OUTPUT_DIR = 'cache'
+
 _COMPRESS_USE_NODE_SASS = True
 if _COMPRESS_USE_NODE_SASS:
     _COMPRESS_SASS_CMD = ('%s --output-style expanded {infile} > {outfile}'
                           % os.path.join(BASE_DIR, 'node_modules/node-sass/bin/node-sass'))
 else:
     _COMPRESS_SASS_CMD = 'sass --scss {infile} {outfile}'
+
 COMPRESS_PRECOMPILERS = [
     ('text/x-scss', _COMPRESS_SASS_CMD),
+]
+
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.rCSSMinFilter',
 ]
 
 STATIC_URL = '/static/'
