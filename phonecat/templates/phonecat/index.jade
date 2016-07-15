@@ -16,11 +16,11 @@ html(lang="en", ng-app="phoneApp")
     script(src="{% static 'angular-resource/angular-resource.js' %}")
     script(src="{% static 'angular-animate/angular-animate.js' %}")
     script(src="{% static 'angular-ui-router/release/angular-ui-router.js' %}")
-    script(src="{% static 'phonecat/phone-app.js' %}")
-    script(src="{% static 'phonecat/phone-service.js' %}")
-    script(src="{% static 'phonecat/phone-list.js' %}")
-    script(src="{% static 'phonecat/phone-detail.js' %}")
-    script(src="{% static 'phonecat/phone-option.js' %}")
+    script(src="{% static 'phonecat/phone-app.js' %}", type="text/x-es6")
+    script(src="{% static 'phonecat/phone-service.js' %}", type="text/x-es6")
+    script(src="{% static 'phonecat/phone-list.js' %}", type="text/x-es6")
+    script(src="{% static 'phonecat/phone-detail.js' %}", type="text/x-es6")
+    script(src="{% static 'phonecat/phone-option.js' %}", type="text/x-es6")
     - endcompress
   body.container-fluid
     nav.navbar.navbar-default

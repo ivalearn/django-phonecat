@@ -6,14 +6,13 @@ angular
     bindings: {'id': '<'},
     templateUrl: 'phone-detail-template',
     controller: ['phoneService', function(phoneService) {
-      var self = this;
-      var data = phoneService.get({id: self.id}, function() {
-        self.data = data;
-        self.images = data.images.map(function(src) { return {src: src, hover: false}; });
-        self.image = self.images[0].src;
-        self.props = data.json_props;
-        self.description = self.props.description
-        delete self.props.description;
+      var data = phoneService.get({id: this.id}, () => {
+        this.data = data;
+        this.images = data.images.map((src) => ({src, hover: false}));
+        this.image = this.images[0].src;
+        this.props = data.json_props;
+        this.description = this.props.description
+        delete this.props.description;
       })
     }],
   });

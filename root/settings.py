@@ -123,15 +123,13 @@ if not os.path.exists(COMPRESS_ROOT):
     os.makedirs(COMPRESS_ROOT)
 COMPRESS_OUTPUT_DIR = 'cache'
 
-_COMPRESS_USE_NODE_SASS = True
-if _COMPRESS_USE_NODE_SASS:
-    _COMPRESS_SASS_CMD = ('%s --output-style expanded {infile} > {outfile}'
-                          % os.path.join(BASE_DIR, 'node_modules/node-sass/bin/node-sass'))
-else:
-    _COMPRESS_SASS_CMD = 'sass --scss {infile} {outfile}'
+_NODEJS_BINDIR = os.path.join(BASE_DIR, 'node_modules', '.bin')
+_SASS_CMD = '%s/node-sass --output-style expanded {infile} > {outfile}' % _NODEJS_BINDIR
+# _SASS_CMD = 'sass --scss {infile} {outfile}'
 
 COMPRESS_PRECOMPILERS = [
-    ('text/x-scss', _COMPRESS_SASS_CMD),
+    ('text/x-scss', _SASS_CMD),
+    ('text/x-es6', '%s/babel {infile} -o {outfile}' % _NODEJS_BINDIR),
 ]
 
 COMPRESS_CSS_FILTERS = [

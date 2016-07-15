@@ -10,7 +10,7 @@ var phoneApp = angular.module('phoneApp', [
 
 phoneApp.config([
   '$stateProvider', '$urlRouterProvider',
-  function($stateProvider, $urlRouterProvider) {
+  ($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/list');
     $stateProvider
       .state('phone_list', {
