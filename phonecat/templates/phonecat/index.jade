@@ -7,12 +7,14 @@ html(lang="en", ng-app="phoneApp")
     - compress css
     link(href="{% static 'bootstrap/dist/css/bootstrap.css' %}", rel="stylesheet")
     link(href="{% static 'phonecat/phone-list.scss' %}", type="text/x-scss", rel="stylesheet")
+    link(href="{% static 'phonecat/phone-detail.scss' %}", type="text/x-scss", rel="stylesheet")
     - endcompress
     - compress js
     script(src="{% static 'jquery/dist/jquery.js' %}")
     script(src="{% static 'bootstrap/dist/js/bootstrap.js' %}")
     script(src="{% static 'angular/angular.js' %}")
     script(src="{% static 'angular-resource/angular-resource.js' %}")
+    script(src="{% static 'angular-animate/angular-animate.js' %}")
     script(src="{% static 'angular-ui-router/release/angular-ui-router.js' %}")
     script(src="{% static 'phonecat/phone-app.js' %}")
     script(src="{% static 'phonecat/phone-service.js' %}")

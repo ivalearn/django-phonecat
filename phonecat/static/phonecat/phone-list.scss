@@ -1,13 +1,36 @@
+$article_height: 100px;
+$article_padding: 15px;
+$total_height: $article_height + $article_padding;
+
 .phones {
   list-style: none;
   li {
     display: flex;
     align-items: flex-start;
     a {
-      flex: 0 0 100px;
+      flex: 0 0 $article_height;
     }
     article {
-      padding: 15px;
+      padding: $article_padding;
     }
+  }
+}
+
+.phone-list-item {
+  &.ng-animate {
+    transition: all 0.4s linear;
+    overflow: hidden;
+  }
+  &.ng-enter {
+    height: 0;
+    &.ng-enter-active { height: $total_height; }
+  }
+  &.ng-move {
+    height: 0;
+    &.ng-move-active { height: $total_height; }
+  }
+  &.ng-leave {
+    height: $total_height;
+    &.ng-leave-active { height: 0; }
   }
 }

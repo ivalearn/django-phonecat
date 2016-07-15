@@ -1,0 +1,12 @@
+.detail-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  &.ng-animate {
+    transition: all 0.4s linear;
+  }
+  opacity: 0;
+  &.current {
+    opacity: 1;
+  }
+}

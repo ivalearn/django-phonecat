@@ -2,7 +2,7 @@
 .row.phone-detail
   .col-sm-3
     .detail-image
-      img.img-responsive(ng-src="{{$ctrl.image}}")
+      img.img-responsive(ng-repeat="img in $ctrl.images", ng-src="{{img.src}}", ng-class="{'current': $ctrl.image == img.src}")
   .col-sm-9
     .jumbotron
       h1 {{$ctrl.data.name}}

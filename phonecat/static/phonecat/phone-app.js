@@ -5,6 +5,7 @@ var phoneApp = angular.module('phoneApp', [
   'ui.router',
   'phoneListModule',
   'phoneDetailModule',
+  'ngAnimate',
 ]);
 
 phoneApp.config([
