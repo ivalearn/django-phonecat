@@ -1,17 +1,13 @@
 'use strict';
 
-var phoneList = angular.module('phoneList', []);
-
-phoneList.component('phoneList', {
-  templateUrl: 'phone-list-template',
-  controller: [
-    '$http',
-    function($http) {
+angular
+  .module('phoneListModule', ['phoneServiceModule'])
+  .component('phoneList', {
+    templateUrl: 'phone-list-template',
+    controller: ['phoneService', function(phoneService) {
       var self = this;
       self.query = "";
       self.sort = "name";
-      $http.get('phones.json').then(function(response) {
-        self.phones = response.data;
-      });
-  }],
-});
+      self.phones = phoneService.query();
+    }],
+  });

@@ -3,8 +3,8 @@
 
 var phoneApp = angular.module('phoneApp', [
   'ui.router',
-  'phoneList',
-  'phoneDetail',
+  'phoneListModule',
+  'phoneDetailModule',
 ]);
 
 phoneApp.config([
