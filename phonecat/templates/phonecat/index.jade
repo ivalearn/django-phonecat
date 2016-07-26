@@ -1,27 +1,11 @@
 - load staticfiles
-- load compress
 doctype html
 html(lang="en", ng-app="phoneApp")
   head
     meta(charset="utf-8")
-    - compress css
-    link(href="{% static 'bootstrap/dist/css/bootstrap.css' %}", rel="stylesheet")
-    link(href="{% static 'phonecat/phone-list.scss' %}", type="text/x-scss", rel="stylesheet")
-    link(href="{% static 'phonecat/phone-detail.scss' %}", type="text/x-scss", rel="stylesheet")
-    - endcompress
-    - compress js
-    script(src="{% static 'jquery/dist/jquery.js' %}")
-    script(src="{% static 'bootstrap/dist/js/bootstrap.js' %}")
-    script(src="{% static 'angular/angular.js' %}")
-    script(src="{% static 'angular-resource/angular-resource.js' %}")
-    script(src="{% static 'angular-animate/angular-animate.js' %}")
-    script(src="{% static 'angular-ui-router/release/angular-ui-router.js' %}")
-    script(src="{% static 'phonecat/phone-app.js' %}", type="text/x-es6")
-    script(src="{% static 'phonecat/phone-service.js' %}", type="text/x-es6")
-    script(src="{% static 'phonecat/phone-list.js' %}", type="text/x-es6")
-    script(src="{% static 'phonecat/phone-detail.js' %}", type="text/x-es6")
-    script(src="{% static 'phonecat/phone-option.js' %}", type="text/x-es6")
-    - endcompress
+    link(href="{% static 'phonecat.css' %}", rel="stylesheet")
+    script(src="{% static 'vendor.js' %}")
+    script(src="{% static 'phonecat.js' %}")
   body.container-fluid
     nav.navbar.navbar-default
       .navbar-header
@@ -42,5 +26,3 @@ html(lang="en", ng-app="phoneApp")
         include phonecat/partials/phone-detail.template.jade
       script#phone-option-template(type="text/ng-template")
         include phonecat/partials/phone-option.template.jade
-    if debug
-      script document.write('<script src="//' + location.host.split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')

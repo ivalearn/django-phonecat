@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'compressor',
     'phonecat',
 ]
 
@@ -46,12 +45,7 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-if DEBUG:
-    # LiveReload
-    INSTALLED_APPS = ['livereload'] + INSTALLED_APPS
-    # MIDDLEWARE_CLASSES += ['livereload.middleware.LiveReloadScript']
-
-ROOT_URLCONF = 'root.urls'
+ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
     {
@@ -77,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'root.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database
@@ -118,25 +112,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-COMPRESS_ROOT = os.path.join(TEMP_DIR, 'compress')
-if not os.path.exists(COMPRESS_ROOT):
-    os.makedirs(COMPRESS_ROOT)
-COMPRESS_OUTPUT_DIR = 'cache'
-
-_NODEJS_BINDIR = os.path.join(BASE_DIR, 'node_modules', '.bin')
-_SASS_CMD = '%s/node-sass --output-style expanded {infile} > {outfile}' % _NODEJS_BINDIR
-# _SASS_CMD = 'sass --scss {infile} {outfile}'
-
-COMPRESS_PRECOMPILERS = [
-    ('text/x-scss', _SASS_CMD),
-    ('text/x-es6', '%s/babel {infile} -o {outfile}' % _NODEJS_BINDIR),
-]
-
-COMPRESS_CSS_FILTERS = [
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.rCSSMinFilter',
-]
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'dist')
 
@@ -146,11 +121,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
 ]
 
 STATICFILES_DIRS = [
     MEDIA_ROOT,
-    os.path.join(BASE_DIR, 'bower_components'),
-    COMPRESS_ROOT,
+    os.path.join(BASE_DIR, 'frontend'),
 ]
