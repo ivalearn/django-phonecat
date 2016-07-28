@@ -1,6 +1,7 @@
 Django==1.9.7
 six==1.10.0
 djangorestframework==3.3.3
+django-jinja==2.2.0
 pytz==2016.6
 Pillow==3.3.0
 jsonfield==1.0.3

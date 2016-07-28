@@ -1,4 +1,5 @@
 import os
+import django_jinja.builtins
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,9 +26,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_jinja',
     'rest_framework',
-    'phonecat',
     'webpack_loader',
+    'phonecat',
 ]
 
 if DEBUG:
@@ -49,6 +51,22 @@ MIDDLEWARE_CLASSES = [
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
+    {
+        'BACKEND': 'django_jinja.backend.Jinja2',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'match_extension': '.j2',
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+            "extensions": django_jinja.builtins.DEFAULT_EXTENSIONS + [
+                "webpack_loader.contrib.jinja2ext.WebpackExtension",
+            ],
+        }
+    },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],

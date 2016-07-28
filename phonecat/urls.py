@@ -6,7 +6,7 @@ from .api import api_root, PhoneList, PhoneDetail
 
 urlpatterns = format_suffix_patterns([
     url(r'^$',
-        lambda request: TemplateResponse(request, 'phonecat/index.jade'),
+        lambda request: TemplateResponse(request, 'phonecat/index.j2'),
         name='phonecat-home'),
     # url(r'^(?P<basepath>.*\.template)\.html$',
     #    lambda request, basepath: TemplateResponse(request, 'phonecat/%s.jade' % basepath)),
