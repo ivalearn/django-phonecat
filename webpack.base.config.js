@@ -1,16 +1,12 @@
 'use strict';
 
 var webpack = require('webpack'),
-    SplitByPath = require('webpack-split-by-path'),
     ExtractText = require('extract-text-webpack-plugin'),
-    BundleTracker = require('webpack-bundle-tracker');
+    SplitByPath = require('webpack-split-by-path');
 
 module.exports = {
-    // generate source maps for js & css bundles
-    devtool: 'source-map',
-
     entry: {
-        phonecat: './phonecat/assets/app.js',
+        phonecat: __dirname + '/phonecat/assets/app.js'
     },
 
     module: {
@@ -35,23 +31,9 @@ module.exports = {
         ]
     },
 
-    output: {
-        path: __dirname + '/assets/bundles',
-        filename: '[name]-[hash].js',
-        chunkFilename: '[name]-[hash].js',
-    },
-
     plugins: [
-        new BundleTracker(__dirname + '/webpack-stats.json'),
-
         // do not publish if compilation fails
         new webpack.NoErrorsPlugin(),
-
-        // aggressively remove duplicate modules
-        new webpack.optimize.DedupePlugin(),
-
-        // split off css
-        new ExtractText('[name]-[hash].css'),
 
         // split off vendor bundle
         new SplitByPath([

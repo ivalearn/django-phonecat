@@ -5,7 +5,7 @@
 /node_modules/
 /static/
 /media/
-/assets/
+/assets/debug/
 /temp/
 /db.sqlite3
-/webpack-stats.json
+/webpack-stats-debug.json
