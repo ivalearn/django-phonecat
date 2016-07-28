@@ -1,7 +1,8 @@
 'use strict';
 
 var webpack = require('webpack'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    SplitByPath = require('webpack-split-by-path'),
+    ExtractText = require('extract-text-webpack-plugin'),
     BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
@@ -10,14 +11,6 @@ module.exports = {
 
     entry: {
         phonecat: './phonecat/assets/app.js',
-        vendor: [
-            'jquery',
-            'bootstrap/dist/js/bootstrap',
-            'angular',
-            'angular-animate',
-            'angular-resource',
-            'angular-ui-router'
-        ]
     },
 
     module: {
@@ -29,11 +22,11 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style?sourceMap', 'css?sourceMap')
+                loader: ExtractText.extract('style?sourceMap', 'css?sourceMap')
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('style?sourceMap', 'css?sourceMap!sass?sourceMap')
+                loader: ExtractText.extract('style?sourceMap', 'css?sourceMap!sass?sourceMap')
             },
             {
                 test: /\.(png|woff|woff2|eot|ttf|svg)$/,
@@ -43,13 +36,13 @@ module.exports = {
     },
 
     output: {
-        path: './assets',
-        publicPath: '/static/',
-        filename: 'phonecat-[hash].js',
+        path: __dirname + '/assets/bundles',
+        filename: '[name]-[hash].js',
+        chunkFilename: '[name]-[hash].js',
     },
 
     plugins: [
-        new BundleTracker('./webpack-stats.json'),
+        new BundleTracker(__dirname + '/webpack-stats.json'),
 
         // do not publish if compilation fails
         new webpack.NoErrorsPlugin(),
@@ -57,10 +50,12 @@ module.exports = {
         // aggressively remove duplicate modules
         new webpack.optimize.DedupePlugin(),
 
-        // split off vendor bundle
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
-
         // split off css
-        new ExtractTextPlugin('phonecat-[hash].css'),
+        new ExtractText('[name]-[hash].css'),
+
+        // split off vendor bundle
+        new SplitByPath([
+            { name: 'vendor', path: __dirname + '/node_modules' }
+        ])
     ]
 };

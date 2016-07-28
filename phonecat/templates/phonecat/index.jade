@@ -4,8 +4,8 @@ doctype html
 html(lang="en", ng-app="phoneApp")
   head
     meta(charset="utf-8")
-    - render_bundle 'vendor'
-    - render_bundle 'phonecat'
+    - render_bundle 'vendor' 'css'
+    - render_bundle 'phonecat' 'css'
   body.container-fluid
     nav.navbar.navbar-default
       .navbar-header
@@ -26,3 +26,6 @@ html(lang="en", ng-app="phoneApp")
         include phonecat/partials/phone-detail.template.jade
       script#phone-option-template(type="text/ng-template")
         include phonecat/partials/phone-option.template.jade
+    - render_bundle 'manifest' 'js'
+    - render_bundle 'vendor' 'js'
+    - render_bundle 'phonecat' 'js'

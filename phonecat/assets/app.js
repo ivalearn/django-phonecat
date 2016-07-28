@@ -1,4 +1,6 @@
-require('jquery/dist/jquery.js');
+// bootstrap.js requires global jQuery, but webpack would load it only on demand
+window.jQuery = require('jquery/dist/jquery.js');
+
 require('bootstrap/dist/js/bootstrap.js');
 require('bootstrap/dist/css/bootstrap.css');
 
