@@ -7,6 +7,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf assets media temp",
+    "lint": "eslint phonecat/assets && sass-lint -v -q",
     "devel": "webpack --progress --colors"
   },
   "repository": {

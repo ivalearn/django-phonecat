@@ -1,5 +1,5 @@
-// app.js
 'use strict';
+import angular from 'angular';
 
 var phoneApp = angular.module('phoneApp', [
   'ui.router',
