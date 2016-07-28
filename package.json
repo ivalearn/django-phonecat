@@ -8,7 +8,8 @@
   "scripts": {
     "clean": "rimraf assets media temp",
     "lint": "eslint phonecat/assets && sass-lint -v -q",
-    "devel": "webpack --progress --colors"
+    "devel": "webpack --progress --colors",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "webpack-bundle-tracker": "0.0.93"
   }
 }

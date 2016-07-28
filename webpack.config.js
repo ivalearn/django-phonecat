@@ -1,7 +1,8 @@
 'use strict';
 
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
     // generate source maps for js & css bundles
@@ -44,10 +45,12 @@ module.exports = {
     output: {
         path: './assets',
         publicPath: '/static/',
-        filename: 'phonecat.js',
+        filename: 'phonecat-[hash].js',
     },
 
     plugins: [
+        new BundleTracker('./webpack-stats.json'),
+
         // do not publish if compilation fails
         new webpack.NoErrorsPlugin(),
 
@@ -58,6 +61,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
 
         // split off css
-        new ExtractTextPlugin('phonecat.css')
+        new ExtractTextPlugin('phonecat-[hash].css'),
     ]
 };

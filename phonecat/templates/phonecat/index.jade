@@ -1,11 +1,11 @@
 - load staticfiles
+- load render_bundle from webpack_loader
 doctype html
 html(lang="en", ng-app="phoneApp")
   head
     meta(charset="utf-8")
-    link(href="{% static 'phonecat.css' %}", rel="stylesheet")
-    script(src="{% static 'vendor.js' %}")
-    script(src="{% static 'phonecat.js' %}")
+    - render_bundle 'vendor'
+    - render_bundle 'phonecat'
   body.container-fluid
     nav.navbar.navbar-default
       .navbar-header

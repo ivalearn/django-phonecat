@@ -7,4 +7,5 @@
 /media/
 /assets/
 /temp/
-db.sqlite3
+/db.sqlite3
+/webpack-stats.json
