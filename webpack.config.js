@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'source-map',
 
     entry: {
-        phonecat: './phonecat/frontend/app.js',
+        phonecat: './phonecat/assets/app.js',
         vendor: [
             'jquery',
             'bootstrap/dist/js/bootstrap',
@@ -42,7 +42,7 @@ module.exports = {
     },
 
     output: {
-        path: './frontend',
+        path: './assets',
         publicPath: '/static/',
         filename: 'phonecat.js',
     },

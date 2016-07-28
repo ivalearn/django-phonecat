@@ -6,11 +6,12 @@
   "description": "phone catalog",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf assets media temp",
     "devel": "webpack --progress --colors"
   },
   "repository": {
     "type": "git",
-    "url": "https://git.vanko.me/git/local/devel.git"
+    "url": "https://git.vanko.me/git/phonecat.git"
   },
   "keywords": [
     "test"
@@ -32,6 +33,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "jquery": "^3.1.0",
+    "rimraf": "^2.5.4",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",

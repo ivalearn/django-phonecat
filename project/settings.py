@@ -77,8 +77,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 TEMP_DIR = os.path.join(BASE_DIR, 'temp')
-if not os.path.exists(TEMP_DIR):
-    os.makedirs(TEMP_DIR)
+os.path.exists(TEMP_DIR) or os.makedirs(TEMP_DIR)
 
 DATABASES = {
     'default': {
@@ -117,6 +116,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'dist')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+os.path.exists(MEDIA_ROOT) or os.makedirs(MEDIA_ROOT)
 
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -125,5 +125,5 @@ STATICFILES_FINDERS = [
 
 STATICFILES_DIRS = [
     MEDIA_ROOT,
-    os.path.join(BASE_DIR, 'frontend'),
+    os.path.join(BASE_DIR, 'assets'),
 ]
