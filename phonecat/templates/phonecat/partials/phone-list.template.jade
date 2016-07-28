@@ -1,4 +1,4 @@
-- verbatim
+- raw
 .row
   .col-sm-2
     form
@@ -14,9 +14,9 @@
     ul.phones
       li.thumbnail.phone-list-item(ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.sort")
         a(href="#/phone/{{phone.id}}")
-          img(ng-src="{{phone.image}}" alt="{{phone.name}}")
+          img(ng-src="{{phone.image}}", alt="{{phone.name}}")
         article
-          a(href="#/phone/{{phone.id}}") {{phone.name}}
+          a(href="#/phone/{{phone.id}}")!= phone.name
             small &nbsp;[{{phone.age}}]
-          p {{phone.snippet}}
-- endverbatim
+          p!= phone.snippet
+- endraw

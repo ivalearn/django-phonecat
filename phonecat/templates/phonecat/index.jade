@@ -1,11 +1,9 @@
-- load staticfiles
-- load render_bundle from webpack_loader
 doctype html
 html(lang="en", ng-app="phoneApp")
   head
     meta(charset="utf-8")
-    - render_bundle 'vendor' 'css'
-    - render_bundle 'main' 'css'
+    != render_bundle('vendor', 'css')
+    != render_bundle('main', 'css')
   body.container-fluid
     nav.navbar.navbar-default
       .navbar-header
@@ -26,6 +24,6 @@ html(lang="en", ng-app="phoneApp")
         include phonecat/partials/phone-detail.template.jade
       script#phone-option-template(type="text/ng-template")
         include phonecat/partials/phone-option.template.jade
-    - render_bundle 'manifest' 'js'
-    - render_bundle 'vendor' 'js'
-    - render_bundle 'main' 'js'
+    != render_bundle('manifest', 'js')
+    != render_bundle('vendor', 'js')
+    != render_bundle('main', 'js')

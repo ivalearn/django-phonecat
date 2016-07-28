@@ -1,6 +1,7 @@
 $article-height: 100px;
 $article-padding: 15px;
 $total-height: $article-height + $article-padding;
+$effect-speed: .1s;
 
 .phones {
   list-style: none;
@@ -22,7 +23,7 @@ $total-height: $article-height + $article-padding;
 .phone-list-item {
 
   &.ng-animate {
-    transition: height .4s linear;
+    transition: height $effect-speed linear;
     overflow: hidden;
   }
 

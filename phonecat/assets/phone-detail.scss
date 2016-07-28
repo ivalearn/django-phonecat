@@ -1,3 +1,5 @@
+$effect-speed: .1s;
+
 .detail-image {
   img {
     position: absolute;
@@ -6,7 +8,7 @@
     opacity: 0;
 
     &.ng-animate {
-      transition: opacity .4s linear;
+      transition: opacity $effect-speed linear;
     }
 
     &.current {

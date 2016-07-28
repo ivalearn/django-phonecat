@@ -55,21 +55,22 @@ TEMPLATES = [
         'BACKEND': 'django_jinja.backend.Jinja2',
         'APP_DIRS': True,
         'OPTIONS': {
-            'match_extension': '.j2',
+            'match_extension': '.jade',
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            "extensions": django_jinja.builtins.DEFAULT_EXTENSIONS + [
-                "webpack_loader.contrib.jinja2ext.WebpackExtension",
+            'extensions': django_jinja.builtins.DEFAULT_EXTENSIONS + [
+                'pyjade.ext.jinja.PyJadeExtension',
+                'webpack_loader.contrib.jinja2ext.WebpackExtension',
             ],
         }
     },
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -77,15 +78,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'loaders': [
-                ('pyjade.ext.django.Loader', (
-                    'django.template.loaders.filesystem.Loader',
-                    'django.template.loaders.app_directories.Loader',
-                ))
-            ],
-            'builtins': [
-                'pyjade.ext.django.templatetags'
-            ],
+            # 'loaders': [
+            #     ('pyjade.ext.django.Loader', (
+            #         'django.template.loaders.filesystem.Loader',
+            #         'django.template.loaders.app_directories.Loader',
+            #     ))
+            # ],
+            # 'builtins': [
+            #     'pyjade.ext.django.templatetags'
+            # ],
         },
     },
 ]

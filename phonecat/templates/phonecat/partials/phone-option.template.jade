@@ -1,7 +1,7 @@
-- verbatim
+- raw
 div(ng-if="$ctrl.value", ng-switch="$ctrl.type", ng-class="{'col-sm-3': $ctrl.level == 2}")
-  p(ng-class="'h' + $ctrl.level") {{$ctrl.name}}
+  p(ng-class="'h' + $ctrl.level")!= $ctrl.name
   phone-option(ng-switch-when="object", ng-repeat="(key, val) in $ctrl.value", name="key", value="val", level="$ctrl.level+2")
-  ul(ng-switch-when="array"): li(ng-repeat="val in $ctrl.value") {{val}}
-  p(ng-switch-default) {{$ctrl.value}}
-- endverbatim
+  ul(ng-switch-when="array"): li(ng-repeat="val in $ctrl.value")!= val
+  p(ng-switch-default)!= $ctrl.value
+- endraw
