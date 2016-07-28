@@ -5,9 +5,9 @@ var webpack = require('webpack'),
     SplitByPath = require('webpack-split-by-path');
 
 module.exports = {
-    entry: {
-        phonecat: __dirname + '/phonecat/assets/app.js'
-    },
+    entry: [
+        __dirname + '/phonecat/assets/app.js'
+    ],
 
     module: {
         loaders: [

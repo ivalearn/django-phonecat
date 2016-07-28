@@ -5,7 +5,7 @@ html(lang="en", ng-app="phoneApp")
   head
     meta(charset="utf-8")
     - render_bundle 'vendor' 'css'
-    - render_bundle 'phonecat' 'css'
+    - render_bundle 'main' 'css'
   body.container-fluid
     nav.navbar.navbar-default
       .navbar-header
@@ -28,4 +28,4 @@ html(lang="en", ng-app="phoneApp")
         include phonecat/partials/phone-option.template.jade
     - render_bundle 'manifest' 'js'
     - render_bundle 'vendor' 'js'
-    - render_bundle 'phonecat' 'js'
+    - render_bundle 'main' 'js'
