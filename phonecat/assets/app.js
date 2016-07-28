@@ -7,7 +7,7 @@ require('bootstrap/dist/css/bootstrap.css');
 require('angular/angular.js');
 require('angular-resource/angular-resource.js');
 require('angular-animate/angular-animate.js');
-require('angular-ui-router/release/angular-ui-router.js');
+require('angular-route/angular-route.js');
 
 require('./phone-app.js');
 require('./phone-service.js');

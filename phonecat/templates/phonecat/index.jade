@@ -17,8 +17,8 @@ html(lang="en", ng-app="phoneApp")
       .collapse.navbar-collapse#bs-navbar-collapse
         ul.nav.navbar-nav
           li: a(href="/") Home
-          li: a(ui-sref="phone_list") List
-    div(ui-view)
+          li: a(href="#/phones") List
+    div(ng-view)
     div#partials(style="display:none;")
       script#phone-list-template(type="text/ng-template")
         include phonecat/partials/phone-list.template.jade
